@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keamogetswe Chuene · Portfolio</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f7fc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 2rem 1rem;
+      color: #1e2b3a;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,20,40,0.25);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s ease;
+    }
+
+    /* header / summary */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.2rem;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 1.8rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1e2e;
+      margin-bottom: 0.25rem;
+    }
+
+    .name-title .badge {
+      background: #d0e2f2;
+      color: #1a4a6b;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .contact-links a {
+      color: #1e3b5a;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-links a:hover {
+      color: #0077b6;
+      border-bottom-color: #0077b6;
+    }
+
+    .contact-links i {
+      font-size: 1.2rem;
+      width: 1.4rem;
+      color: #2c577a;
+    }
+
+    .summary {
+      background: #f0f5fb;
+      padding: 1.6rem 2rem;
+      border-radius: 24px;
+      margin-bottom: 2.5rem;
+      border-left: 4px solid #2a6a96;
+      font-size: 1.02rem;
+      color: #1a2d3f;
+    }
+
+    .summary strong {
+      color: #0b2a44;
+    }
+
+    /* grid layout: two columns */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.4rem;
+      margin-top: 0.5rem;
+    }
+
+    /* left column */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    /* cards */
+    .card {
+      background: #fafcff;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #cbdae6;
+      box-shadow: 0 8px 18px rgba(0, 40, 70, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      color: #12314b;
+      border-bottom: 2px solid #e3eaf1;
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card h3 i {
+      color: #2a6a96;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    .exp-item, .edu-item {
+      margin-bottom: 1.6rem;
+    }
+
+    .exp-item:last-child, .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-item .title {
+      font-weight: 650;
+      font-size: 1.05rem;
+      color: #0b2b44;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .exp-item .sub {
+      font-weight: 500;
+      color: #3b5d7a;
+      font-size: 0.9rem;
+      margin: 0.2rem 0 0.5rem 0;
+    }
+
+    .exp-item .date {
+      font-weight: 500;
+      color: #4d6e8a;
+      background: #e6eef7;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .exp-item ul, .edu-item ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .exp-item li, .edu-item li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #1f3b52;
+    }
+
+    .exp-item li::before, .edu-item li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2a6a96;
+      font-weight: 600;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: #d9e6f2;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1a4a6b;
+      margin-right: 0.4rem;
+    }
+
+    .coursework-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.7rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .course-tag {
+      background: #e8eff6;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #1d3b56;
+    }
+
+    .achievement-list {
+      list-style: none;
+    }
+
+    .achievement-list li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .achievement-list i {
+      color: #2a6a96;
+      width: 1.4rem;
+      font-size: 1rem;
+    }
+
+    .skill-section {
+      margin-top: 0.2rem;
+    }
+
+    .skill-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1f405e;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #d4e0ea;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #1a3f5a;
+      transition: 0.1s;
+    }
+
+    .skill-tag:hover {
+      background: #e3edf7;
+      border-color: #9bb7d0;
+    }
+
+    /* responsive */
+    @media (max-width: 820px) {
+      .container {
+        padding: 1.8rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .profile-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-links {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.2rem;
+      }
+      .name-title h1 {
+        font-size: 2.2rem;
+      }
+      .summary {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+    }
+
+    /* tiny extra */
+    .text-muted {
+      color: #4f6f8a;
+    }
+
+    .footer-credit {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #7a95ae;
+      text-align: center;
+      border-top: 1px solid #e3eaf1;
+      padding-top: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-credit a {
+      color: #2a6a96;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header -->
+  <div class="profile-header">
+    <div class="name-title">
+      <h1>Keamogetswe Chuene</h1>
+      <span class="badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i> BSc Math Sciences · CS & Stats</span>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:keamogetswechuenel1@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="tel:+27662004154"><i class="fas fa-phone-alt"></i> +27 66 200 4154</a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </div>
+
+  <!-- summary -->
+  <div class="summary">
+    <i class="fas fa-quote-left" style="color: #2a6a96; opacity: 0.6; margin-right: 8px;"></i>
+    <strong>Final-year Mathematical Science student</strong> majoring in Computer Science and Statistics, with a strong foundation in software development, backend engineering, and data analysis. Proficient in Python, Java, SQL, SAS, and modern web technologies, with hands-on experience building scalable applications and analyzing data to support decision-making. Demonstrated analytical problem-solving, teamwork, and communication skills developed through hackathons, data competitions, and collaborative academic projects. Passionate about applying technology and data-driven insights to solve real-world problems.
+  </div>
+
+  <!-- main two-col -->
+  <div class="two-col">
+    <!-- LEFT COLUMN: Experience + Education -->
+    <div class="left-col">
+      <!-- Experience -->
+      <div class="card">
+        <h3><i class="fas fa-briefcase"></i> Experience</h3>
+
+        <div class="exp-item">
+          <div class="title">
+            <span>Hackathon Participant</span>
+            <span class="date">Oct 2025</span>
+          </div>
+          <div class="sub">University of Limpopo Hackathons</div>
+          <ul>
+            <li>Collaborated with multidisciplinary teams to design and develop innovative software solutions under tight deadlines.</li>
+            <li>Strengthened problem-solving, coding, and collaboration skills in high-pressure environments.</li>
+            <li><span class="highlight-badge"><i class="fas fa-trophy"></i> 2nd place</span> – crop-health detection app using ML to identify unhealthy plants and provide early warnings for farmers.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="title">
+            <span>Data-thon Participant</span>
+            <span class="date">Oct 2022</span>
+          </div>
+          <div class="sub">University of Limpopo</div>
+          <ul>
+            <li>Analysed complex datasets to extract insights and support data-driven decision-making.</li>
+            <li>Presented findings clearly within strict timelines.</li>
+            <li>Improved analytical thinking, statistical reasoning, and programming skills.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="card">
+        <h3><i class="fas fa-university"></i> Education</h3>
+        <div class="edu-item">
+          <div class="title" style="font-weight: 650; font-size: 1.05rem; color: #0b2b44;">
+            Bachelor of Mathematical Science
+            <span style="font-weight: 400; font-size: 0.85rem; color: #3b5d7a; background: #e6eef7; padding: 0.1rem 0.8rem; border-radius: 40px;">Major: CS & Stats</span>
+          </div>
+          <div style="margin: 0.3rem 0 0.6rem 0; color: #2a577b; font-weight: 500;">University of Limpopo · Expected: June 2026</div>
+          <div style="font-weight: 600; margin: 0.8rem 0 0.3rem 0; font-size: 0.95rem; color: #1a3f5a;">Relevant Coursework</div>
+          <div class="coursework-grid">
+            <span class="course-tag">Data Structures</span>
+            <span class="course-tag">Computer Architecture</span>
+            <span class="course-tag">Advanced Calculus</span>
+            <span class="course-tag">Linear Algebra</span>
+            <span class="course-tag">Theory of Distributions</span>
+            <span class="course-tag">Statistical Inference</span>
+            <span class="course-tag">Database Systems</span>
+            <span class="course-tag">Artificial Intelligence</span>
+            <span class="course-tag">Operating Systems</span>
+            <span class="course-tag">Computer Networks</span>
+            <span class="course-tag">Time Series Analysis</span>
+            <span class="course-tag">Design & Analysis of Experiments</span>
+            <span class="course-tag">Applied Linear Regression</span>
+            <span class="course-tag">Sampling Theory</span>
+          </div>
+
+          <div style="margin-top: 1.2rem;">
+            <div style="font-weight: 600; font-size: 0.95rem; color: #1a3f5a; margin-bottom: 0.4rem;">Academic Achievements</div>
+            <ul class="achievement-list" style="list-style: none; padding-left: 0;">
+              <li><i class="fas fa-medal"></i> 2nd Place – University of Limpopo Hackathon (2025)</li>
+              <li><i class="fas fa-medal"></i> 1st Place – University of Limpopo Datathon</li>
+              <li><i class="fas fa-users"></i> Led peer study sessions & facilitated group project collaboration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Skills + extra -->
+    <div class="right-col">
+      <!-- Technical & Professional Skills -->
+      <div class="card">
+        <h3><i class="fas fa-code"></i> Skills</h3>
+        <div class="skill-section">
+          <div class="skill-group">
+            <h4>Technical</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">SAS</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Database Management</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">ETL Concepts</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Power BI</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Analytical</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Quantitative Problem-Solving</span>
+              <span class="skill-tag">Statistical Analysis</span>
+              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">Insight Generation</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Professional</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Team Collaboration</span>
+              <span class="skill-tag">Verbal & Written Communication</span>
+              <span class="skill-tag">Analytical Thinking</span>
+              <span class="skill-tag">Project Delivery</span>
+              <span class="skill-tag">Client-Focused Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional highlights / quick facts -->
+      <div class="card">
+        <h3><i class="fas fa-star"></i> Highlights</h3>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.9rem;">
+            <i class="fas fa-robot" style="color: #2a6a96; width: 1.6rem; font-size: 1.2rem;"></i>
+            <span><strong>ML for agriculture</strong> – built crop-health detection app (2nd place hackathon)</span>
+          </li>
+          <li style="display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.9rem;">
+            <i class="fas fa-chart-line" style="color: #2a6a96; width: 1.6rem; font-size: 1.2rem;"></i>
+            <span><strong>Data-thon winner</strong> – 1st place in competitive data analysis challenge</span>
+          </li>
+          <li style="display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.9rem;">
+            <i class="fas fa-users-cog" style="color: #2a6a96; width: 1.6rem; font-size: 1.2rem;"></i>
+            <span><strong>Peer mentor</strong> – led study sessions and facilitated group projects</span>
+          </li>
+          <li style="display: flex; gap: 0.8rem; align-items: flex-start;">
+            <i class="fas fa-database" style="color: #2a6a96; width: 1.6rem; font-size: 1.2rem;"></i>
+            <span><strong>Full-stack exposure</strong> – Django, Spring Boot, React, SQL, ETL</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- download / link note (optional) -->
+      <div class="card" style="background: #ecf3fa; border-color: #c5d8e8;">
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+          <i class="fas fa-paperclip" style="color: #1e4d72; font-size: 1.3rem;"></i>
+          <span style="font-weight: 500; color: #123a58;">View my full CV (PDF) attached</span>
+          <span style="margin-left: auto; background: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; border: 1px solid #b7cfdf;"><i class="fas fa-file-pdf"></i> CV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer (optional) -->
+  <div class="footer-credit">
+    <i class="fas fa-crown" style="opacity: 0.5; margin-right: 6px;"></i> Keamogetswe Chuene · portfolio · 
+    <a href="#" target="_blank">linkedin.com/in/keamogetswe</a> · 
+    <i class="fas fa-code" style="margin-left: 4px; opacity: 0.6;"></i> 2026
+  </div>
+</div>
+</body>
+</html>
